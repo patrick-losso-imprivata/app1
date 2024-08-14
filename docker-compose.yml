@@ -1,0 +1,29 @@
+services:
+  buildbox-c7:
+    image: 'artifactory-01.imprivata.com/docker-local/build-box:centos7'
+    privileged: true
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - "${HOME}/.m2/:/root/.m2"
+      - "${HOME}/.ssh/:/root/.ssh"
+      - "${PWD}:/root/code"
+    environment:
+      - VAULT_ADDR
+      - VAULT_TOKEN
+      - VAULT_ROLE_ID
+      - VAULT_SECRET_ID
+
+  buildbox-a8:
+    image: 'artifactory-01.imprivata.com/docker-local/build-box:alma8'
+    privileged: true
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - "${HOME}/.m2/:/root/.m2"
+      - "${HOME}/.ssh/:/root/.ssh"
+      - "${PWD}:/root/code"
+    environment:
+      - VAULT_TOKEN
+      - VAULT_ROLE_ID
+      - VAULT_SECRET_ID
