@@ -15,7 +15,7 @@ services:
       - VAULT_SECRET_ID
 
   buildbox-a8:
-    image: 'artifactory-01.imprivata.com/docker-local/build-box/almalinux/8/almalinux:latest'
+    image: 'artifactory-01.imprivata.com/docker-local/build-box:alma8'
     privileged: true
     cap_add:
       - IPC_LOCK
